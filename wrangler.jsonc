@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "replace-with-paper-short-name",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-17",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "RATE_LIMITER", "class_name": "RateLimiter" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["RateLimiter"] }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "OPENAI_MODEL": "gpt-5.6-luna",
+    "PAPER_TITLE": "Replace with the paper title",
+    "PAPER_AUTHORS": "Replace with the authors",
+    "DAILY_QUESTION_LIMIT": "10",
+    "MONTHLY_REQUEST_CAP": "2500",
+    "CONTACT_EMAIL": "replace@uoregon.edu"
+  }
+}
+

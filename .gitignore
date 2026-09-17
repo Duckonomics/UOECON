@@ -1,0 +1,10 @@
+node_modules/
+.wrangler/
+.wrangler-config/
+.dev.vars
+.env
+.env.*
+!.dev.vars.example
+wrangler-*-output.txt
+wrangler-*-error.txt
+
